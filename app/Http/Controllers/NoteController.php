@@ -12,7 +12,7 @@ class NoteController extends Controller
         $noteTable = new Note();
         $user = Auth::user();
         error_log($user);
-        $notes = $noteTable->where("userId", "=", $user->id)->get();
+        $notes = $noteTable->where("user_id", "=", $user->id)->get();
         return view("notes", ["name" => $user->name, "notes" => $notes]);
     }
 
@@ -20,7 +20,7 @@ class NoteController extends Controller
         $noteTable = new Note();
         $user = Auth::user();
         $noteTable->insert([
-            "userId" => $user->id,
+            "user_id" => $user->id,
             "title" => request("title"),
             "noteDesc" => request("noteDesc")
         ]);
@@ -30,13 +30,13 @@ class NoteController extends Controller
 
     public function deleteNote() {
         $noteTable = new Note();
-        $note = $noteTable->where("noteId", "=", request("id"))->delete();
+        $note = $noteTable->where("id", "=", request("id"))->delete();
         return redirect("/notes");
     }
 
     public function updateNote() {
         $noteTable = new Note();
-        $noteTable->where("noteId", "=", request("id"))
+        $noteTable->where("id", "=", request("id"))
                     ->update([
                         "title" => request("title"),
                         "noteDesc" => request("note")
