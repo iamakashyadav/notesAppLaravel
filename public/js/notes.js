@@ -24,7 +24,7 @@ function buttonEditModal(element) {
                                     <input type="hidden" name="_method" value="PUT">
                                     <input type="text" name="title" placeholder="Title" value="${note[1].innerText}">
                                     <textarea name="note" rows="10"  placeholder="Take a note...">${note[5].innerHTML}</textarea>
-                                    <input type="hidden" name="id" value=${note[7].value}>
+                                    <input type="hidden" name="id" value="${note[7].value}">
                                     <button type="submit">Update</button>
                                 </form>
                                 <div class="edit-modal-close" id="closeModal">

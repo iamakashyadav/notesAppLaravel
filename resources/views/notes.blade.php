@@ -37,14 +37,14 @@
                 <h2>{{$note->title}}</h2>
                 <hr>
                 <p>{{$note->noteDesc}}</p>
-                <input type="hidden" name="id" value="{{$note->noteId}}">
+                <input type="hidden" name="id" value="{{$note->id}}">
                 <div class="note-edit">
                     <button onclick="buttonShowModal(this)">Show</button>
                     <button onclick="buttonEditModal(this)" class="edit-button"><img src="/img/edit.png" alt="edit"></button>
                     <form action="/note" method="POST">
                         @csrf
                         @method('DELETE')
-                        <input type="hidden" name="id" value = "{{$note->noteId}}">
+                        <input type="hidden" name="id" value = "{{$note->id}}">
                         <button><img src="/img/delete.png" alt="delete"></button>
                     </form>
                 </div>
